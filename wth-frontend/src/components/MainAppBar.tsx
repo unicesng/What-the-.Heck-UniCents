@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import PaidIcon from '@mui/icons-material/Paid';
 import { Link } from 'react-router-dom';
 
 const pages = [
@@ -45,23 +46,22 @@ function MainAppBar() {
     <AppBar position="static">
       <Container maxWidth="false">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <PaidIcon sx={{ display: { xs: 'none', md: 'flex' , color:'orange'}, mr: 1 }} />
           <Typography
-            variant="h6"
+            variant="h4"
             noWrap
             component="a"
             href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: 'verdana',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'orange',
               textDecoration: 'none',
-            }}
-          >
-            LOGO
+              alignItems:'center',}}>
+            UniCents
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
