@@ -1,4 +1,5 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+const app = Vue.createApp({
+    template: '<h1>Hello World</h1>'
+})
 
-createApp(App).mount('#app')
+app.mount('#app')
