@@ -58,7 +58,7 @@ export default function About() {
               About Unicents
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              TODO
+              From comparing university tuition fees to identifying potential donors and uncovering money-saving tips from fellow students, we've got all your needs covered.
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -88,7 +88,7 @@ export default function About() {
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      University Comparator
                     </Typography>
                     <Typography>
                       This is a media card. You can use this section to describe the
@@ -108,7 +108,7 @@ export default function About() {
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          Unicents
         </Typography>
         <Typography
           variant="subtitle1"
@@ -116,7 +116,7 @@ export default function About() {
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Don't worry, there is more to come.
         </Typography>
         <Copyright />
       </Box>
