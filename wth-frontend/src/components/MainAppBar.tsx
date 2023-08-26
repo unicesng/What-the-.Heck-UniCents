@@ -55,7 +55,7 @@ function MainAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'verdana',
+              fontFamily: 'garamond',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'orange',
