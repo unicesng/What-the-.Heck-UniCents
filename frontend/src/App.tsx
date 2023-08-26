@@ -1,7 +1,11 @@
-import ListGroup from './components/ListGroup';
+import UniSelectionButton from "./components/UniSelectionButton";
 
 function App() {
-  return <div><ListGroup /></div>;
+  return (
+    <div>
+      <UniSelectionButton />
+    </div>
+  );
 }
 
 export default App;
