@@ -103,7 +103,7 @@ function MainAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <PaidIcon sx={{ display: { xs: 'flex', md: 'none' , color:'orange'}, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -113,14 +113,14 @@ function MainAppBar() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'garamond',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'orange',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            UniCents
           </Typography>
           
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
