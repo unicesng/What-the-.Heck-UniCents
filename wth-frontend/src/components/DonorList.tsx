@@ -217,7 +217,7 @@ function DonorBar() {
 }
 
 function DonorList() {
-  return (<><DonorBar /><DonorBar /></>);
+  return (<DonorBar />);
 }
 
 export default DonorList;
