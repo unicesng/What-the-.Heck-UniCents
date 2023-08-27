@@ -26,7 +26,7 @@ yarn install
 serverless offline start
 ```
 ## 3. API routes
-#### All routes will follow this front: http://localhost:3000/dev
+#### All routes will follow this front: https://2530rs15me.execute-api.ap-southeast-1.amazonaws.com/dev
 
 ### 3.1 Login/Register functions
 #### Register
