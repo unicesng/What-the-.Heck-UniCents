@@ -29,11 +29,30 @@ serverless offline start
 #### All routes will follow this front: http://localhost:3000/dev
 
 ### 3.1 Login/Register functions
-#### Donor Register
+#### Register
 Route: /register  
 Method: POST  
 Autorization: NO  
-Params: 
+Params: {  
+    email: string,  
+    name: string,  
+    password: string,  
+}
+```
+Result: {  
+    error: true/false,  
+    data: "key",  
+    message: "Outcome"  
+}
+```
+#### login
+Route: /login    
+Method: POST  
+Autorization: NO  
+Params: {  
+    email: string,  
+    password: string  
+}
 ```
 Result: {  
     error: true/false,  
