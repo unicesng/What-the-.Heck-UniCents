@@ -26,7 +26,7 @@ const cardsData = [
   {
     title: "Donor List",
     description: "Our Donor Matching Platform enhances opportunities for students to secure scholarships & improve convenience for donations",
-    imageUrl: "https://www.organdonor.gov/sites/default/files/organ-donor/learn/donor-man-and-recipient-woman.png"
+    imageUrl: "https://www.organdonor.gov/sites/default/files/organ-donor/learn/donor-man-and-recipient-woman.png",
     description: "Donor Matching Platform to enhance opportunities for students to secure scholarships & improve convenience for donations",
     imageUrl: "https://www.organdonor.gov/sites/default/files/organ-donor/learn/donor-man-and-recipient-woman.png",
     route: '/donors',
