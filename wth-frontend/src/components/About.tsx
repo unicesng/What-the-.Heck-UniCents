@@ -1,5 +1,3 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -29,7 +27,7 @@ function Copyright() {
 
 
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [1, 2, 3, 4];
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
@@ -73,35 +71,110 @@ export default function About() {
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image="https://source.unsplash.com/random?wallpapers"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      University Comparator
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
+            <Grid item key='1' xs={12} sm={8} md={6}>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="div"
+                  sx={{
+                    // 16:9
+                    pt: '56.25%',
+                  }}
+                  image="https://source.unsplash.com/random?wallpapers"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    University Comparator
+                  </Typography>
+                  <Typography>
+                    To find a university that suits your needs. 
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">View More</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+
+            <Grid item key='1' xs={12} sm={8} md={6}>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="div"
+                  sx={{
+                    // 16:9
+                    pt: '56.25%',
+                  }}
+                  image="https://source.unsplash.com/random?wallpapers"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Afforable University for All
+                  </Typography>
+                  <Typography>
+                    We aims  to work with donor to relive the financial burdens of every student.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">View More</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+
+            <Grid item key='1' xs={12} sm={8} md={6}>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="div"
+                  sx={{
+                    // 16:9
+                    pt: '56.25%',
+                  }}
+                  image="https://source.unsplash.com/random?wallpapers"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    For the under privilege
+                  </Typography>
+                  <Typography>
+                    We have donors that aims to help with people of different background and community such as the underprivilledged.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">View More</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+
+            <Grid item key='1' xs={12} sm={8} md={6}>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="div"
+                  sx={{
+                    // 16:9
+                    pt: '56.25%',
+                  }}
+                  image="https://source.unsplash.com/random?wallpapers"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Community support
+                  </Typography>
+                  <Typography>
+                    We have donor from different community who might want to support students with similar background as having same hometown which has inaccessible education or having similar background like LGBTQ+.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">View More</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+
           </Grid>
         </Container>
       </main>
