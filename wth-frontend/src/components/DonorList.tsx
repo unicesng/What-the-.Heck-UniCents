@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -10,8 +10,6 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Box, Checkbox, Container, FormControlLabel, FormGroup } from '@mui/material';
-
-const apiUrl = '';
 
 function Copyright() {
   return (
@@ -26,28 +24,28 @@ function Copyright() {
   );
 }
 
-const donors = [
- {
-  name: "ZVC Bank",
-  description: "Aims to help those within ASEAN counties and planning to further edcation within finance service sector",
-  index: 1
- }, 
- {
-  name: "Ali Connors",
-  description: "I am a fellow LGBTQ+ ally who hopes that my contribution would greatly impact the university journey of one member of the LGBTQ+ community",
-  index: 2
- }, 
- {
-  name: "Sandra Adams",
-  description: "Education has the potential to transform lives. I am committed to supporting a student who is dedicated but may be struggling financially",
-  index: 3
- },
- {
-  name: "James",
-  description: "Wish do donate to those who are unable to afford education.",
-  index: 3
- }
-];
+// const donors = [
+//  {
+//   name: "ZVC Bank",
+//   description: "Aims to help those within ASEAN counties and planning to further edcation within finance service sector",
+//   index: 1
+//  }, 
+//  {
+//   name: "Ali Connors",
+//   description: "I am a fellow LGBTQ+ ally who hopes that my contribution would greatly impact the university journey of one member of the LGBTQ+ community",
+//   index: 2
+//  }, 
+//  {
+//   name: "Sandra Adams",
+//   description: "Education has the potential to transform lives. I am committed to supporting a student who is dedicated but may be struggling financially",
+//   index: 3
+//  },
+//  {
+//   name: "James",
+//   description: "Wish do donate to those who are unable to afford education.",
+//   index: 3
+//  }
+// ];
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
@@ -156,7 +154,7 @@ function DonorBar() {
         
       </main>
       {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
+      {/* <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
           Education for All
         </Typography>
@@ -169,7 +167,7 @@ function DonorBar() {
           no matter who you are.
         </Typography>
         <Copyright />
-      </Box>
+      </Box> */}
       {/* End footer */}
     </ThemeProvider>
   );

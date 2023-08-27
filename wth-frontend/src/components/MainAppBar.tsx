@@ -7,11 +7,8 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import PaidIcon from '@mui/icons-material/Paid';
 import { Link } from 'react-router-dom';
 
@@ -21,7 +18,7 @@ const pages = [
                 {name: 'Discussion', path: '/discussion', index: 0},
                 {name: 'About Us', path: '/about', index: 0},
               ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const logo = 'https://s3.ap-southeast-1.amazonaws.com/ellipsis-whatthe.heckimages/UniCentslogoNew.png';
 
@@ -46,7 +43,7 @@ function MainAppBar() {
 
   return (
     <AppBar position="fixed">
-      <Container maxWidth="false">
+      <Container maxWidth="lg">
         <Toolbar disableGutters>
           {/* <PaidIcon sx={{ display: { xs: 'none', md: 'flex' , color:'orange'}, mr: 1 }} /> */}
           <Typography

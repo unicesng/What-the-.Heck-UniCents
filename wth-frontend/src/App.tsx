@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import {Routes, Route } from "react-router-dom";
 import '@fontsource/roboto/300.css';
@@ -16,7 +15,7 @@ import { Box } from '@mui/material';
 import SignUp from './components/SignUp';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
 

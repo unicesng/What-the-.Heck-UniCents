@@ -1,5 +1,3 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -14,7 +12,7 @@ import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import { Link as RouterLink } from 'react-router-dom';
+// import { Link as RouterLink } from 'react-router-dom';
 
 const cardsData = [
   {
@@ -25,10 +23,8 @@ const cardsData = [
   },
   {
     title: "Donor List",
-    description: "Our Donor Matching Platform enhances opportunities for students to secure scholarships & improve convenience for donations",
     imageUrl: "https://www.organdonor.gov/sites/default/files/organ-donor/learn/donor-man-and-recipient-woman.png",
     description: "Donor Matching Platform to enhance opportunities for students to secure scholarships & improve convenience for donations",
-    imageUrl: "https://www.organdonor.gov/sites/default/files/organ-donor/learn/donor-man-and-recipient-woman.png",
     route: '/donors',
   },
   {
