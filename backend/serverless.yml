@@ -1,4 +1,4 @@
-service: backend
+service: ellipsis-hackathon-backend
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -26,21 +26,21 @@ functions:
          method: post
          cors: true
 
-resources:
-  Resources:
-    MyDynamoDBTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: users
-        AttributeDefinitions:
-          - AttributeName: email
-            AttributeType: S
-        KeySchema:
-          - AttributeName: email
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
+# resources:
+#   Resources:
+#     MyDynamoDBTable:
+#       Type: AWS::DynamoDB::Table
+#       Properties:
+#         TableName: users
+#         AttributeDefinitions:
+#           - AttributeName: email
+#             AttributeType: S
+#         KeySchema:
+#           - AttributeName: email
+#             KeyType: HASH
+#         ProvisionedThroughput:
+#           ReadCapacityUnits: 1
+#           WriteCapacityUnits: 1
 plugins:
   - serverless-offline
 
