@@ -97,6 +97,7 @@ function Discussion() {
       <p></p>
       <MakeAPostButton />
       <ForumList />
+      <ForumList />
     </>
   );
 }
