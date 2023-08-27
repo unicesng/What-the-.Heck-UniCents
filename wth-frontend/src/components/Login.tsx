@@ -37,8 +37,8 @@ const defaultTheme = createTheme();
 
 export default function SignInSide() {
 
-  const [loginError, setLoginError] = useState('');
-  const [openErrorDialog, setOpenErrorDialog] = useState(false);
+  // const [loginError, setLoginError] = useState('');
+  // const [openErrorDialog, setOpenErrorDialog] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -46,7 +46,7 @@ export default function SignInSide() {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
 
-      const res = await fetch('http://localhost:3000/dev/login', {
+      const res = await fetch('https://2530rs15me.execute-api.ap-southeast-1.amazonaws.com/dev/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
