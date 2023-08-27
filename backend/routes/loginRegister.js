@@ -1,8 +1,7 @@
-// routes/myModelRoutes.js
 const express = require('express');
-const LoginRegisterController = require('../controller/LoginRegisterController.js');
 const cors = require('cors');
 const passport = require('passport');
+const jwt = require('jsonwebtoken');
 
 const routes = () => {
     const router = express.Router();
@@ -22,38 +21,52 @@ const routes = () => {
         session: false
     }), async (req, res, next) => {
         if (!req.user.error) {
-            res.status(200).send(req.email);
+            res.status(200).send({
+                error: false,
+                data: {},
+                message: "Successfully registered user"
+            });
         } else {
-            res.status(500).send(req.user);
+            res.status(500).send({
+                error: true,
+                data: {},
+                message: "Error registering user"
+            });
         }
     });
-    router.post('/login', passport.authenticate('login', {}),
-        async (err, user, info) => {
+    router.post('/login', passport.authenticate('login', {
+        session: false
+    }), async (req, res, next) => {
             try {
-                if (info.error) {
-                    return res.status(500).send(info)
+                if (req.authInfo.error) {
+                    console.log(req)
+                    return res.status(500).send({
+                        error: req.authInfo.error,
+                        data: {},
+                        message: req.authInfo.message
+                    })
                 } else {
-                    req.login(user, {
-                        session: false
-                    }, async (error) => {
-                        if (error) return next(error)
-                        const token = jwt.sign({
-                            user
-                        }, 'SECRET');
-                        //Send back the token to the user
-                        return res.status(200).send({
-                            error: false,
-                            data: token,
-                            message: info.message
-                        });
+                    const token = jwt.sign({
+                        email: req.user.email
+                    }, 'SECRET');
+                    //Send back the token to the user
+                    return res.status(200).send({
+                        error: req.authInfo.error,
+                        data: token,
+                        message: req.authInfo.message
                     });
                 }
             } catch (error) {
-                return next(error);
+                console.log(error);
+                res.status(500).send({
+                    error: true,
+                    data: {},
+                    message: "Error logging in"
+                });
             }
     });
-router.post('/student/register', {});
-router.get('/student/login', {});
+// router.post('/student/register', {});
+// router.get('/student/login', {});
 
 return router;
 }

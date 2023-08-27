@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Box, Button, Modal } from "@mui/material";
 import * as React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -7,10 +7,94 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import Item from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
+import Alert from "@mui/material/Alert";
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
+
 
 function MakeAPostButton() {
-  return <Button variant="outlined">Create a new post</Button>;
-  //   return <button>Test</button>;
+  const [open, setOpen] = React.useState(false);
+  const [openAlert, setOpenAlert] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  return (
+  <>
+  
+  <Button variant="contained" onClick={handleOpen} style={{marginLeft:"200px", marginTop:"50px"}}>Create a new post</Button>
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="parent-modal-title"
+      aria-describedby="parent-modal-description"
+    >
+    <Box sx={{ ...style, width: 500 }}>
+      <Box sx={{ width: '100%' }}>
+        <Collapse in={openAlert}>
+          <Alert
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => {
+                  setOpen(false);
+                  setOpenAlert(false);
+                }}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+            sx={{ mb: 2 }}
+          >
+            Your Thread has been created!
+          </Alert>
+        </Collapse>
+      </Box>
+    <br/>
+      <h2 id="parent-modal-title">Start a thread!</h2>
+      <p id="parent-modal-description">Please fill in the following details</p>
+
+        <TextField id="outlined-basic" label="Title" variant="outlined" style={{width:"450px"}}/>
+        <br/>
+        <br/>
+        <TextField
+          id="outlined-multiline-static"
+          label="Post Description"
+          multiline
+          rows={5}
+          defaultValue="Please add a description to your post"
+          style={{width:"450px"}}
+        />
+        <br/><br/>
+        <Button variant="outlined" 
+              onClick={() => {
+                setOpenAlert(true);
+              }}>Submit</Button>
+        <Button variant="outlined" onClick={handleClose}>Cancel</Button>
+      
+    </Box>
+  </Modal>
+  </>
+  );
+  
 }
 
 function ForumList() {
@@ -94,9 +178,39 @@ function ForumList() {
 function Discussion() {
   return (
     <>
-      <p></p>
-      <MakeAPostButton />
-      <ForumList />
+       <div className="paddedSides">
+        <br/><br/>
+        <Grid 
+        container 
+        direction="row"
+        justifyContent="space-around"
+        >
+          <Grid item xs={6}>
+            <h1>Discussion Forum</h1>
+            <p>Feeling lose and need help with picking a university? Post a questions and let our community help you out</p>
+          </Grid>
+          <Grid item xs={4}>
+            <Item><MakeAPostButton /></Item>
+          </Grid>
+        </Grid> 
+        <Grid 
+        container 
+        direction="row"
+        justifyContent="space-around"
+        >
+          <Grid item xs={8}>
+            <h2>Trending Post</h2>
+            <ForumList />
+            <br/>
+            <h2>Recent Post</h2>
+            <ForumList />  
+          </Grid>
+          <Grid item xs={2}>
+            
+          </Grid>
+        </Grid>
+        
+      </div>
     </>
   );
 }
