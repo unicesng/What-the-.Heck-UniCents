@@ -17,6 +17,7 @@ app.use(passport.initialize());
 
 // Import routes into application
 app.use('/', require('./routes/loginRegister'));
+app.use('/uni', require('./routes/uniComparison'));
 
 module.exports = app;
 
