@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -9,6 +10,8 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Box, Checkbox, Container, FormControlLabel, FormGroup } from '@mui/material';
+
+const apiUrl = '';
 
 function Copyright() {
   return (
@@ -50,80 +53,23 @@ const donors = [
 const defaultTheme = createTheme();
 
 function DonorBar() {
-  return (
-    // <List sx={{ width: "100%", maxWidth: 850, bgcolor: "background.paper" }}>
-    //   <ListItem alignItems="flex-start">
-    //     <ListItemAvatar>
-    //       <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-    //     </ListItemAvatar>
-    //     <ListItemText
-    //       primary="LGBTQ+ friendly sponsorship :)"
-    //       secondary={
-    //         <React.Fragment>
-    //           <Typography
-    //             sx={{ display: "inline" }}
-    //             component="span"
-    //             variant="body2"
-    //             color="text.primary"
-    //           >
-    //             Ali Connors
-    //           </Typography>
-    //           {" — I am a fellow LGBTQ+ ally who hopes that my contribution would greatly impact the university journey of one member of the LGBTQ+ community. My mission and personal vis"}
-    //         </React.Fragment>
-    //       }
-    //     />
-    //   </ListItem>
-    //   <Divider variant="inset" component="li" />
-    //   <ListItem alignItems="flex-start">
-    //     <ListItemAvatar>
-    //       <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-    //     </ListItemAvatar>
-    //     <ListItemText
-    //       primary="A Tribute to my Brother"
-    //       secondary={
-    //         <React.Fragment>
-    //           <Typography
-    //             sx={{ display: "inline" }}
-    //             component="span"
-    //             variant="body2"
-    //             color="text.primary"
-    //           >
-    //             to Alex
-    //           </Typography>
-    //           {
-    //             " — my parents would like to gift the money that was meant for my younger brother to someone who deserves it. "
-    //           }
-    //         </React.Fragment>
-    //       }
-    //     />
-    //   </ListItem>
-    //   <Divider variant="inset" component="li" />
-    //   <ListItem alignItems="flex-start">
-    //     <ListItemAvatar>
-    //       <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-    //     </ListItemAvatar>
-    //     <ListItemText
-    //       primary="Donations!"
-    //       secondary={
-    //         <React.Fragment>
-    //           <Typography
-    //             sx={{ display: "inline" }}
-    //             component="span"
-    //             variant="body2"
-    //             color="text.primary"
-    //           >
-    //             Sandra Adams
-    //           </Typography>
-    //           {
-    //             " — hope everyone is doing well! education has the potential to transform lives. i am committed to supporting a student who is dedicated but may be struggling financially"
-    //           }
-    //         </React.Fragment>
-    //       }
-    //     />
-    //   </ListItem>
-    // </List>
+  const [universities, setUniversities] = useState([]);
 
-    
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("https://2530rs15me.execute-api.ap-southeast-1.amazonaws.com/dev/uni/getAllUnis");
+        const data = await response.json();
+        if (!data.error) {
+          setUniversities(data.data);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
+  }, []);
+  return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <main>
@@ -162,31 +108,44 @@ function DonorBar() {
             <Container sx={{ py: 2 }} maxWidth="lg">
               {/* End hero unit */}
               <Grid container spacing={4}>
-                {donors.map((donor) => (
-                  <Grid item key={donor.index} xs={12} sm={6} md={6}>
-                    <Card
-                      sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                    >
-                      <CardMedia
-                        component="div"
-                        sx={{
-                          // 16:9
-                          pt: '56.25%',
-                        }}
-                        image="https://source.unsplash.com/random?wallpapers"
-                      />
-                      <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {donor.name}
-                        </Typography>
-                        <Typography>
-                          {donor.description}
-                        </Typography>
-                      </CardContent>
-                      <CardActions>
-                        <Button size="small">View More</Button>
-                      </CardActions>
-                    </Card>
+              {universities.map((university: {
+              university: string,
+              location: string,
+              scholarships : [{name: string}]
+            }, index) => (
+                <Grid item key={index} xs={12} sm={6} md={6}>
+                  {university.scholarships.map((scholarship: {name: string}) => (
+                  <Card
+                    sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  >
+                    <CardMedia
+                      component="div"
+                      sx={{
+                        // 16:9
+                        pt: '56.25%',
+                      }}
+                      image={'https://source.unsplash.com/random?wallpapers'}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {scholarship.name}
+                      </Typography>
+                      <Typography>
+                        {university.university}
+                      </Typography>
+                      <Typography>
+                        {university.location}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small">
+                        <Link href="/" color="inherit" underline="none">
+                          View More
+                        </Link>
+                      </Button>
+                    </CardActions>
+                  </Card>
+                  ))}
                   </Grid>
                 ))}
               </Grid>
