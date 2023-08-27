@@ -45,7 +45,7 @@ function MainAppBar() {
   // };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="false">
         <Toolbar disableGutters>
           {/* <PaidIcon sx={{ display: { xs: 'none', md: 'flex' , color:'orange'}, mr: 1 }} />

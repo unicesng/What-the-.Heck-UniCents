@@ -186,8 +186,16 @@ function Discussion() {
         justifyContent="space-around"
         >
           <Grid item xs={6}>
-            <h1>Discussion Forum</h1>
-            <p>Feeling loss and need help with picking a university? Post a questions and let our community help you out</p>
+          <Typography
+              component="h1"
+              variant="h2"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+              Discussion Forum
+            </Typography>
+            <p>Feeling lose and need help with picking a university? Post a questions and let our community help you out</p>
           </Grid>
           <Grid item xs={4}>
             <Item><MakeAPostButton /></Item>

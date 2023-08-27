@@ -29,7 +29,7 @@ function Copyright(props: any) {
 
 export default function Home() {
   return (
-    <Grid container component="main" sx={{ overflow: 'hidden', height: '92.9vh' }}>
+    <Grid container component="main" sx={{ overflow: 'hidden', height: '100%' }}>
       <Grid
         item
         xs={0}
