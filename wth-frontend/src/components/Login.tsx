@@ -42,7 +42,7 @@ export default function SignInSide() {
   return (
     <Box sx={{overflow: 'hidden'}}>
       <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ overflow: 'hidden', height: '92.9vh', }}>
+      <Grid container component="main" sx={{ overflow: 'hidden', height: '100vh', }}>
         <CssBaseline />
         <Grid
           item
@@ -115,7 +115,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
