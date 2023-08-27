@@ -9,19 +9,25 @@ import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import { Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Copyright(props: any) {
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
+
+interface CopyrightProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  sx?: React.CSSProperties | Record<string, any>;
+}
+
+function Copyright(props: CopyrightProps) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" >
-        Unicents
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      <Link color="inherit">Unicents</Link> {new Date().getFullYear()}.
     </Typography>
   );
 }
@@ -30,14 +36,41 @@ function Copyright(props: any) {
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+  const [loginError, setLoginError] = useState('');
+  const [openErrorDialog, setOpenErrorDialog] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    try {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+
+      const res = await fetch('http://localhost:3000/dev/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: data.get('email'),
+          password: data.get('password'),
+        }),
+      });
+      // const retValue = await res.json();
+      if(res.status === 200) {
+      navigate('/');
+      } else {
+        // setLoginError('Login failed. Please check your credentials.');
+        // setOpenErrorDialog(true);
+      }
+    } catch(err) {
+      console.log(err);
+    } 
   };
+
+  // const handleCloseErrorDialog = () => {
+  //   setOpenErrorDialog(false); // Close the error dialog
+  // };
 
   return (
     <Box sx={{overflow: 'hidden'}}>
@@ -125,6 +158,18 @@ export default function SignInSide() {
           </Box>
         </Grid>
       </Grid>
+
+      {/* <Dialog open={openErrorDialog} onClose={handleCloseErrorDialog}>
+          <DialogTitle>Error</DialogTitle>
+          <DialogContent>
+            <p>{loginError}</p>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseErrorDialog} color="primary">
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog> */}
     </ThemeProvider>
     </Box>
     

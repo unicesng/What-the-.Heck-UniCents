@@ -39,7 +39,6 @@ const routes = () => {
     }), async (req, res, next) => {
             try {
                 if (req.authInfo.error) {
-                    console.log(req)
                     return res.status(500).send({
                         error: req.authInfo.error,
                         data: {},
