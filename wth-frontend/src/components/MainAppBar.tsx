@@ -48,7 +48,7 @@ function MainAppBar() {
     <AppBar position="fixed">
       <Container maxWidth="false">
         <Toolbar disableGutters>
-          {/* <PaidIcon sx={{ display: { xs: 'none', md: 'flex' , color:'orange'}, mr: 1 }} />
+          {/* <PaidIcon sx={{ display: { xs: 'none', md: 'flex' , color:'orange'}, mr: 1 }} /> */}
           <Typography
             variant="h4"
             noWrap
@@ -63,9 +63,9 @@ function MainAppBar() {
               color: 'orange',
               textDecoration: 'none',
               alignItems:'center',}}>
-            UniCents
-          </Typography> */}
-          <img src={logo} alt="logo" width="150px" height="55px" style={{marginRight: "10px"}}/>
+            <img src={logo} alt="logo" width="150px" height="55px" style={{marginRight: "10px"}}/>
+          </Typography>
+          
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
