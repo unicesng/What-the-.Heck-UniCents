@@ -23,6 +23,8 @@ const pages = [
               ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
+const logo = 'https://s3.ap-southeast-1.amazonaws.com/ellipsis-whatthe.heckimages/UniCentslogoNew.png';
+
 function MainAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   //const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -46,7 +48,7 @@ function MainAppBar() {
     <AppBar position="static">
       <Container maxWidth="false">
         <Toolbar disableGutters>
-          <PaidIcon sx={{ display: { xs: 'none', md: 'flex' , color:'orange'}, mr: 1 }} />
+          {/* <PaidIcon sx={{ display: { xs: 'none', md: 'flex' , color:'orange'}, mr: 1 }} />
           <Typography
             variant="h4"
             noWrap
@@ -62,8 +64,8 @@ function MainAppBar() {
               textDecoration: 'none',
               alignItems:'center',}}>
             UniCents
-          </Typography>
-
+          </Typography> */}
+          <img src={logo} alt="logo" width="150px" height="55px" style={{marginRight: "10px"}}/>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"

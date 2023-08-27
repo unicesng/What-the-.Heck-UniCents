@@ -51,14 +51,14 @@ export default function Home() {
         <Box
           sx={{
             position: 'absolute',
-            top: '15%',
+            top: '20%',
             left: '50%',
             transform: 'translate(-50%, -30%)',
             textAlign: 'top',
             color: 'black',
           }}
         >
-          <h1>Navigate University Finances with Ease.</h1>
+          <h1>Navigating University Finances with Ease.</h1>
           <Copyright sx={{ mt: 2, color: 'inherit' }} />
         </Box>
       </Grid>
