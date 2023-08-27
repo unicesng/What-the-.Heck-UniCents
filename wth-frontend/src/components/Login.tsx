@@ -13,9 +13,12 @@ import { Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useRef } from 'react';
 
 
 interface CopyrightProps {
@@ -41,8 +44,12 @@ export default function SignInSide() {
   // const [openErrorDialog, setOpenErrorDialog] = useState(false);
   const navigate = useNavigate();
 
+  const [error, setError] = useState(0);
+
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
+      setError(0);
       event.preventDefault();
       const data = new FormData(event.currentTarget);
 
@@ -64,6 +71,7 @@ export default function SignInSide() {
         // setOpenErrorDialog(true);
       }
     } catch(err) {
+      setError(1);
       console.log(err);
     } 
   };
@@ -108,6 +116,9 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
+            <Stack sx={{ width: '100%' }} spacing={2}>
+              {error && <Alert severity="error">This is an error alert — check it out!</Alert>}
+            </Stack>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
